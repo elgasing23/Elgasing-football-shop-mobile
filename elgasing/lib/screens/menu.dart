@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:elgasing/widgets/left_drawer.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -19,7 +19,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Football News',
+          'Football Shop',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -27,6 +27,7 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+      drawer: LeftDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -83,15 +84,19 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: item.color, // warna sesuai item
+      color: item.color,
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         onTap: () {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!")),
-            );
+          if (item.name == "Create Products") {
+            Navigator.pushNamed(context, '/add-product');
+          } else {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!")),
+              );
+          }
         },
         child: Container(
           padding: const EdgeInsets.all(8),

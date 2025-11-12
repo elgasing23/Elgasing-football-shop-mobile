@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:elgasing/menu.dart';
+import 'package:elgasing/screens/menu.dart';
+import 'package:elgasing/screens/newslist_form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
         .copyWith(secondary: Colors.blueAccent[400]),
       ),
       home: MyHomePage(),
+      routes: {
+        '/add-product': (context) => const ProductFormPage(),
+      },
     );
   }
 }
