@@ -58,6 +58,8 @@ Widget yang saya gunakan:
 
 </details>
 
+</details>
+
 <details>
 <summary>Tugas 8: Navigasi, Form, dan Layout</summary>
 
@@ -99,7 +101,3 @@ Dengan cara ini, warna utama Football Shop konsisten di semua halaman dan menduk
 </details>
 
 </details>
-
-
-
-
