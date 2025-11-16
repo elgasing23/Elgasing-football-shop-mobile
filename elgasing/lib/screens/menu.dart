@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:elgasing/widgets/left_drawer.dart';
+import 'package:elgasing/screens/items_entry_list.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -90,7 +91,14 @@ class ItemCard extends StatelessWidget {
         onTap: () {
           if (item.name == "Create Products") {
             Navigator.pushNamed(context, '/add-product');
-          } else {
+          } else if (item.name == "See Football News") {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ItemListPage()
+                  ),
+              );
+          }else {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(

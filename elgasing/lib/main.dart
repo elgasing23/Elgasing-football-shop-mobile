@@ -1,6 +1,9 @@
+import 'package:elgasing/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:elgasing/screens/menu.dart';
-import 'package:elgasing/screens/newslist_form.dart';
+import 'package:elgasing/screens/itemslist_form.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +15,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+        return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+    child: MaterialApp(
+      title: 'Elgasing Shop',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -33,10 +41,11 @@ class MyApp extends StatelessWidget {
          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
         .copyWith(secondary: Colors.blueAccent[400]),
       ),
-      home: MyHomePage(),
+      home: const LoginPage(),
       routes: {
         '/add-product': (context) => const ProductFormPage(),
       },
+    )
     );
   }
 }

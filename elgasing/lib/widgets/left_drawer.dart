@@ -1,8 +1,10 @@
 // Asumsikan berkas ini ada di direktori yang sesuai (contoh: di luar folder widgets)
 // Sesuaikan path import berikut jika struktur folder Anda berbeda
+import 'package:elgasing/screens/myItemlist.dart';
 import 'package:flutter/material.dart';
 import 'package:elgasing/screens/menu.dart';
-import 'package:elgasing/screens/newslist_form.dart';
+import 'package:elgasing/screens/itemslist_form.dart';
+import 'package:elgasing/screens/items_entry_list.dart';
 
 
 class LeftDrawer extends StatelessWidget {
@@ -58,7 +60,7 @@ class LeftDrawer extends StatelessWidget {
 
           ListTile(
             leading: const Icon(Icons.post_add),
-            title: const Text('Add News'),
+            title: const Text('Add items'),
             onTap: () {
               Navigator.push(
                 context,
@@ -68,6 +70,30 @@ class LeftDrawer extends StatelessWidget {
               );
             },
           ),
+
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Item List'),
+            onTap: () {
+                // Route to news list page
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ItemListPage()),
+                );
+            },
+        ),
+
+
+        ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('My Item'),
+            onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyItemsPage()),
+                );
+            },
+        ),
         ],
       ),
     );
